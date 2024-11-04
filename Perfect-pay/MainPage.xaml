@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Perfect_pay.MainPage">
+<!-- en appShell se usa para declarar variables globales 
+    -->
+    <ContentPage.Resources>
+        <Color x:Key="SectionsColor"> #444444</Color>
+        <Color x:Key="LightFont">#d6d6d6</Color>
+        <Color x:Key="DarkFont">#7fd9eb</Color>
+    </ContentPage.Resources>
+    <!--
+    Layouts en MAUI
+    Stacks(Vertical / horizontal)
+    Absolutelayout
+    flexlayout 
+    grid
+    
+    -->
+    <Grid Margin="15" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".7*"/>
+        </Grid.RowDefinitions>
+<!-- Encabezado-->
+        <Frame
+            Padding="10"
+            BackgroundColor="{StaticResource SectionsColor}"
+            BorderColor="Transparent">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"></RowDefinition>
+                    <RowDefinition Height="0.9*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="1"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label 
+                    Text="Perfect Pay"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource DarkFont}"
+                    HorizontalTextAlignment="Center"
+                    Grid.ColumnSpan="3"></Label>
+                <Label 
+                    Text="$0.00"
+                    Grid.Row="1"
+                    FontAttributes="Bold"
+                    FontSize="35"
+                    HorizontalTextAlignment="Center"
+                    TextColor="{StaticResource LightFont}"
+                    VerticalOptions="CenterAndExpand"
+                    x:Name="lblTotal"/>
+                <BoxView
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="White"
+                    WidthRequest="1"
+                    />
+                <VerticalStackLayout
+                 Grid.Row="1"
+                 Grid.Column="2"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center">
+                 <Label Text="SUBTOTAL"
+                        TextColor="{StaticResource LightFont}"/>
+               
+                 <Label Text="$0.00"
+                        FontAttributes="Bold"
+                        Margin="0,0,0,10"/>
+                 <Label Text="Total P/PERSONA"
+                        TextColor="{StaticResource LightFont}"/>
+                 <Label Text="$0.00"
+                        FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Grid>    
+        </Frame>
+        
+        <Grid Grid.Row="1" 
+              Margin="0,15,0,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition Width="0.7*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Text="Total"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   VerticalOptions="Center"
+                   />
+            <Entry
+            Grid.Column="1"
+            Grid.Row="0"
+            BackgroundColor="{StaticResource SectionsColor}"
+            Keyboard="Numeric"
+            Text="0.0"
+            VerticalOptions="Center"
+            x:Name="txtBill"/>
+            
+            <Label Text="Escoge la propina"
+            Grid.Column="0"
+            Grid.Row="1"
+            VerticalOptions="Center"/>
+
+            <HorizontalStackLayout
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalOptions="CenterAndExpand"
+                Spacing="10"
+                HeightRequest="70">
+                
+                <Button Text="10%" WidthRequest="70"/>
+                <Button Text="15%" WidthRequest="70"/>
+                <Button Text="20%" WidthRequest="70"/>
+            </HorizontalStackLayout>
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                Text="Propina 10%"
+                    />
+            <Slider Grid.Column="1"
+                    Grid.Row="2"
+                    Minimum="0"
+                    Maximum="50"
+                    x:Name="sldTip">
+
+            </Slider>
+            
+            <Label
+                Grid.Column="0"
+                Grid.Row="2"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                VerticalOptions="Center"
+               HorizontalOptions="CenterAndExpand"
+                Text="Dividelo en las cabezas de la mesa">
+                
+            </Label>
+            <HorizontalStackLayout
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Button x:Name="btnMinus"
+                        Text="-"
+                        WidthRequest="70"/>
+                <Label x:Name="lblNoPersonas"
+                       Text="1"
+                       Margin="-5,0,-5,0"
+                       BackgroundColor="{StaticResource SectionsColor}"
+                       FontSize="25"
+                       WidthRequest="100"
+                       HeightRequest="50"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="{StaticResource LightFont}"
+                       />
+                
+
+                <Button x:Name="btnPlus"
+        Text="+"
+        WidthRequest="70"/>
+            </HorizontalStackLayout>
+        </Grid>
+    
+    </Grid>
+    
+    
+</ContentPage>
