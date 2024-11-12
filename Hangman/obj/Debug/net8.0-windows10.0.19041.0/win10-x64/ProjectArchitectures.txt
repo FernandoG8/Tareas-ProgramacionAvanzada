@@ -1,0 +1,1 @@
+C:\Users\fwscg\source\repos\Hangman\Hangman.csproj;x64

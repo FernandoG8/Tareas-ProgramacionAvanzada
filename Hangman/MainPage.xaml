@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hangman.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*" />
+            <RowDefinition Height="0.4*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <VerticalStackLayout>
+            <Label x:Name="Erroreslb"
+                   Text="{Binding Estado}"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"
+                   Margin="10,10,0,0" />
+
+            <Image Source="{Binding Imagen}"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HeightRequest="300"
+                   WidthRequest="300" />
+
+           
+            <Label FontSize="40"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Text="{Binding Spotlight}"/>
+
+            <Label x:Name="estatuslb"
+                   Text="{Binding Mensaje}"
+                   Grid.Row="0"
+                   HorizontalOptions="Center" />
+
+            <Button Text="Reiniciar"
+                    Clicked="btnReiniciar"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    HeightRequest="50"
+                    Margin="0,10" />
+        </VerticalStackLayout>
+
+        <FlexLayout x:Name="ContenedorBotones"
+                    Grid.Row="1"
+                    Wrap="Wrap"
+                    JustifyContent="SpaceEvenly"
+                    BindableLayout.ItemsSource="{Binding Letras}"
+                    Margin="0,10,0,10"
+                    >
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button Text="{Binding .}"
+                            HeightRequest="50"
+                            WidthRequest="50" 
+                            Clicked="OnLetterClicked"/>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </Grid>
+</ContentPage>
